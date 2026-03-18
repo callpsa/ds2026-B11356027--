@@ -1,0 +1,9 @@
+{
+  "project_name": "My Supabase App",
+  "region": "ap-northeast-1",
+  "features": [
+    "auth",
+    "database",
+    "storage"
+  ]
+}
