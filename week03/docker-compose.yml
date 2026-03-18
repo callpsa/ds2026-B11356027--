@@ -1,0 +1,47 @@
+# docker-compose.yml
+name: week03-stack
+
+services:
+  # 資料庫服務 (Supabase 的核心就是它！)
+  postgres:
+    image: postgres:15          # Supabase 預設使用 PostgreSQL 15，保持一致
+    container_name: week03-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: apppassword
+      TZ: Asia/Taipei
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:                # 讓其他服務確認 DB 真的啟動好了才開始
+      test: ["CMD-SHELL", "pg_isready -U appuser -d appdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 資料庫管理介面（用瀏覽器操作 PostgreSQL）
+  adminer:
+    image: adminer:latest
+    container_name: week03-adminer
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy   # 等 DB 健康檢查通過才啟動
+    ports:
+      - "8080:8080"
+
+  # 靜態網頁伺服器（驗證 localhost 穿透是否正常）
+  nginx:
+    image: nginx:latest
+    container_name: week03-nginx
+    restart: unless-stopped
+    ports:
+      - "8088:80"
+    volumes:
+      - ./html:/usr/share/nginx/html:ro   # 掛載本地 html/ 目錄（唯讀）
+
+volumes:
+  postgres_data:
