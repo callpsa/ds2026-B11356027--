@@ -6,7 +6,7 @@
 
 ## 📌 專案簡介
 
-本專案實作一個基於 **RAG（Retrieval-Augmented Generation）** 的遊戲攻略問答系統，  
+本專案實作一個基於 RAG（Retrieval-Augmented Generation）的遊戲攻略問答系統，  
 針對 MMORPG《Albion Online》建立一套具備「可解釋性」與「可擴展性」的知識檢索與生成系統。
 
 使用者可透過自然語言提問，例如：
@@ -14,18 +14,19 @@
 > 「弓箭手打 5v5 怎麼配裝？」
 
 系統將：
-1. 檢索相關攻略資料  
-2. 重新排序最相關內容  
-3. 生成具參考來源的回答  
+
+- 檢索相關攻略資料  
+- 重新排序最相關內容  
+- 生成具參考來源的回答  
 
 ---
 
 ## 🎯 專案目標
 
-- 建立遊戲策略知識庫（Wiki / Reddit / Patch Notes）
-- 提供高準確度的語意檢索（Semantic Retrieval）
-- 降低大型語言模型（LLM）產生幻覺（Hallucination）
-- 提供可解釋性（Explainable AI）
+- 建立遊戲策略知識庫（Wiki / Reddit / Patch Notes）  
+- 提供高準確度的語意檢索（Semantic Retrieval）  
+- 降低大型語言模型（LLM）產生幻覺（Hallucination）  
+- 提供可解釋性（Explainable AI）  
 
 ---
 
@@ -100,7 +101,7 @@ albion-rag-system/
 - 固定長度：500 tokens  
 - Overlap：50 tokens  
 - 語義切分：依裝備 / 技能 / 戰術分類  
-- Markdown 結構切分（# Build / # Strategy）
+- Markdown 結構切分（# Build / # Strategy）  
 
 ---
 
@@ -117,7 +118,7 @@ albion-rag-system/
 
 ## 🧪 評估方法
 
-使用 **RAGAS** 評估系統品質：
+使用 RAGAS 評估系統品質：
 
 | 指標 | 說明 |
 |------|------|
@@ -139,11 +140,11 @@ albion-rag-system/
 
 ## 🧊 Cold Start 解法
 
-問題：
+### 問題
 - 新 Patch 無資料  
 - 新 Build 無歷史紀錄  
 
-解法：
+### 解法
 - 定期更新資料（ETL pipeline）  
 - 加入官方 Patch Notes  
 
