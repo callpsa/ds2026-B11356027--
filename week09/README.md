@@ -205,13 +205,6 @@ python src/retrieval.py
 
 ---
 
-## 👨‍💻 作者
-
-- Student: [你的名字]  
-- Course: System Analysis / Data Science  
-- Semester: 2026 Spring  
-
----
 
 ## 📝 備註
 
