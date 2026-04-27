@@ -7,6 +7,3 @@
 
 ## 📌 作業內容
 本 repository 包含課程所有作業與報告。
-
-## 🔗 重要文件
-- 第9週 whitepaper：./第9週/whitepaper.md
